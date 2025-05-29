@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Илья и утяжелённые одеяла — Гайд</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 1em; background: #f4f7f9; color: #222; }
+  h1, h2 { color: #205375; }
+  a { color: #1f78b4; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .calculator { background: white; padding: 1em; margin: 1em 0; border-radius: 8px; box-shadow: 0 2px 6px #ccc; }
+  label { display: block; margin: 0.5em 0 0.2em; }
+  input[type="number"] { width: 100%; padding: 0.4em; font-size: 1em; }
+  .result { font-weight: bold; margin-top: 1em; color: #2b7a78; }
+  .blanket-list { display: flex; flex-wrap: wrap; gap: 1em; margin-top: 1em; }
+  .blanket { background: white; padding: 1em; border-radius: 8px; box-shadow: 0 2px 6px #ccc; flex: 1 1 280px; }
+  .blanket img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+  .blanket h3 { margin: 0.5em 0; color: #0b3c5d; }
+  nav { margin-bottom: 1em; }
+  nav a { margin-right: 1em; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Гайд</a>
+  <a href="fun.html">Топ-10 шуточных одеял</a>
+</nav>
+
+<h1>Илья и утяжелённые одеяла — Гайд</h1>
+
+<section class="calculator">
+  <h2>Калькулятор веса одеяла</h2>
+  <p>Введите рост и вес, чтобы узнать рекомендуемый вес утяжелённого одеяла.</p>
+  <label for="height">Рост (см):</label>
+  <input type="number" id="height" value="190" min="100" max="250" />
+  <label for="weight">Вес (кг):</label>
+  <input type="number" id="weight" value="100" min="30" max="200" />
+  <button id="calcBtn">Рассчитать</button>
+  <p class="result" id="result"></p>
+</section>
+
+<section>
+  <h2>Реальные утяжелённые одеяла для Ильи</h2>
+  <div class="blanket-list">
+    <div class="blanket">
+      <img src="https://wellinagravity.ru/upload/resize_cache/iblock/7cd/800_800_1/wellinagravity_172_205_10kg.jpg" alt="WELLINAGRAVITY 172×205 см, 10 кг" />
+      <h3>WELLINAGRAVITY 172×205 см, 10 кг</h3>
+      <p>Оптимальный размер и вес для роста 190 см и веса 100 кг. Натуральная ткань, стеклянные шарики для равномерного давления.</p>
+      <p><strong>Цена:</strong> от 5 150 ₽</p>
+      <p><a href="https://wellinagravity.ru/" target="_blank" rel="noopener noreferrer">Перейти к покупке</a></p>
+    </div>
+    <div class="blanket">
+      <img src="https://okmatras.ru/upload/resize_cache/iblock/a69/a69a58d00fdbd03a8a8f0861de67be45.jpg" alt="Гравитационное одеяло Aura, до 12 кг" />
+      <h3>Гравитационное одеяло Aura, до 12 кг</h3>
+      <p>Есть варианты под рост 190 см. Полимерные шарики, хлопковый чехол.</p>
+      <p><strong>Цена:</strong> от 5 500 ₽</p>
+      <p><a href="https://okmatras.ru/odeyala/aura/gravitaczionnoe" target="_blank" rel="noopener noreferrer">Перейти к покупке</a></p>
+    </div>
+    <div class="blanket">
+      <img src="https://bio-textiles.ru/upload/iblock/6d0/6d0ff157bce3a91a55b379bb0f7e4f1d.jpg" alt="I-HUG от Bio-Textiles, до 8 кг" />
+      <h3>I-HUG от Bio-Textiles, до 8 кг</h3>
+      <p>Гипоаллергенное, дышащее, равномерное распределение веса. Лучше выбирать 6 или 8 кг.</p>
+      <p><strong>Цена:</strong> от 14 261 ₽</p>
+      <p><a href="https://bio-textiles.ru/prod/23319/" target="_blank" rel="noopener noreferrer">Перейти к покупке</a></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const calcBtn = document.getElementById("calcBtn");
+  const resultEl = document.getElementById("result");
+  calcBtn.addEventListener("click", () => {
+    const height = Number(document.getElementById("height").value);
+    const weight = Number(document.getElementById("weight").value);
+    if (!height || !weight) {
+      resultEl.textContent = "Пожалуйста, введите корректные значения роста и веса.";
+      return;
+    }
+    // Рекомендуемый вес одеяла — 10% от веса + 1 кг
+    const recommended = Math.round(weight * 0.1 + 1);
+    resultEl.textContent = `Рекомендуемый вес утяжелённого одеяла: ${recommended} кг`;
+  });
+</script>
+
+</body>
+</html>
